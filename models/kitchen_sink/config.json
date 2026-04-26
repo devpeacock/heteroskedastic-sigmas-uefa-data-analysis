@@ -1,0 +1,72 @@
+{
+  "winner_subset": "rfe",
+  "winner_features": [
+    "top_third_pass_share",
+    "forward_pass_share_D",
+    "cumul_sprints",
+    "jersey_number",
+    "cumul_passes_M"
+  ],
+  "n_features": 5,
+  "best_C_lasso": 0.05,
+  "n_estimators": 34,
+  "scale_pos_weight": 12.83815028901734,
+  "global_threshold": 0.06999999999999999,
+  "percp_thresholds": {
+    "H1_15": 0.060000000000000005,
+    "H1_30": 0.06999999999999999,
+    "H1_45": 0.060000000000000005,
+    "H2_15": 0.04,
+    "H2_30+": 0.05
+  },
+  "test_metrics": [
+    {
+      "calibration": "raw",
+      "threshold": "global_thr",
+      "AUC": 0.8122,
+      "AP": 0.1165,
+      "Brier": 0.2056,
+      "BA": 0.699
+    },
+    {
+      "calibration": "raw",
+      "threshold": "percp_thr",
+      "AUC": 0.8122,
+      "AP": 0.1165,
+      "Brier": 0.2056,
+      "BA": 0.5
+    },
+    {
+      "calibration": "global_iso",
+      "threshold": "global_thr",
+      "AUC": 0.8102,
+      "AP": 0.1099,
+      "Brier": 0.0386,
+      "BA": 0.7148
+    },
+    {
+      "calibration": "global_iso",
+      "threshold": "percp_thr",
+      "AUC": 0.8102,
+      "AP": 0.1099,
+      "Brier": 0.0386,
+      "BA": 0.7024
+    },
+    {
+      "calibration": "percp_iso",
+      "threshold": "global_thr",
+      "AUC": 0.7998,
+      "AP": 0.1221,
+      "Brier": 0.0394,
+      "BA": 0.7062
+    },
+    {
+      "calibration": "percp_iso",
+      "threshold": "percp_thr",
+      "AUC": 0.7998,
+      "AP": 0.1221,
+      "Brier": 0.0394,
+      "BA": 0.6983
+    }
+  ]
+}

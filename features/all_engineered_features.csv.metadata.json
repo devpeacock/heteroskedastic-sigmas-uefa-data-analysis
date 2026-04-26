@@ -1,0 +1,67 @@
+{
+  "args": {
+    "data_dir": "data",
+    "drop_zero_ratios": false,
+    "metadata_out": null,
+    "output": "features\\all_engineered_features.csv",
+    "seed": 42,
+    "single_thread": true
+  },
+  "argv": [
+    "scripts/build_all_features.py",
+    "--seed",
+    "42",
+    "--single-thread"
+  ],
+  "env": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONHASHSEED": "42",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "force_single_thread": true,
+  "git_commit": null,
+  "inputs": {
+    "main": {
+      "path": "C:\\Users\\tymot\\projects\\wec\\data\\players_quarters_final.csv",
+      "sha256": "4fe7e1a07a0c54e645e8a997fc81d4bed168a598c0df2d2d4eb2d10d1b34c07e"
+    },
+    "passes": {
+      "path": "C:\\Users\\tymot\\projects\\wec\\data\\player_appearance_pass.csv",
+      "sha256": "efee44b2ba3685a1ee74d6c2ce858a25abcaa2f3d221214b56c0648fa84bf893"
+    },
+    "press": {
+      "path": "C:\\Users\\tymot\\projects\\wec\\data\\player_appearance_behaviour_under_pressure.csv",
+      "sha256": "87bc31862e4e2efe3d2c92b8839618dda810d7622e0e03c0a0b0d61b40bae11e"
+    },
+    "runs": {
+      "path": "C:\\Users\\tymot\\projects\\wec\\data\\player_appearance_run.csv",
+      "sha256": "d91f4c0b872083c42a68a8b3856660dbff0c7e1430d007d28ed4ee1fc27af414"
+    },
+    "shots": {
+      "path": "C:\\Users\\tymot\\projects\\wec\\data\\player_appearance_shot_limited.csv",
+      "sha256": "bedb74834ed6029658ffc9272d56dc91e9f5358a11e878c00ef9a9f1dfcd2d8d"
+    }
+  },
+  "outputs": {
+    "features_csv": {
+      "path": "C:\\Users\\tymot\\projects\\wec\\features\\all_engineered_features.csv",
+      "sha256": "cad9e02731dc46fdc118fc2ccc16e590c54f825b07d59f13818a9d0596a9bfa6"
+    }
+  },
+  "package_versions": {
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "statsmodels": "0.14.6",
+    "xgboost": "3.2.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python_executable": "C:\\Users\\tymot\\projects\\wec\\.venv\\Scripts\\python.exe",
+  "python_version": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+  "seed": 42,
+  "timestamp_utc": "2026-04-26T12:58:49.003862+00:00"
+}

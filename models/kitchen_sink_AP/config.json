@@ -1,0 +1,52 @@
+{
+  "winner_subset": "lasso",
+  "winner_features": [
+    "ratio_peak_speed",
+    "formation_offensiveness",
+    "pos_A",
+    "pos_D",
+    "subbed_int",
+    "is_home_int",
+    "jersey_number",
+    "minute_in",
+    "ratio_distance",
+    "last15_sprints",
+    "cumul_hsr",
+    "last15_peak_speed",
+    "ratio_shots_top_third"
+  ],
+  "n_features": 13,
+  "best_C_lasso": 0.05,
+  "n_estimators": 27,
+  "scale_pos_weight": 12.83815028901734,
+  "f1_threshold": 0.08097989949748743,
+  "ba_threshold": 0.06198492462311557,
+  "f1_threshold_global": 0.08097989949748743,
+  "ba_threshold_global": 0.06198492462311557,
+  "percp_thresholds_f1": {
+    "H1_15": 0.10947236180904522,
+    "H1_30": 0.11422110552763819,
+    "H1_45": 0.06673366834170853,
+    "H2_15": 0.047738693467336675,
+    "H2_30+": 0.05723618090452261
+  },
+  "percp_thresholds_ba": {
+    "H1_15": 0.10947236180904522,
+    "H1_30": 0.0857286432160804,
+    "H1_45": 0.06673366834170853,
+    "H2_15": 0.047738693467336675,
+    "H2_30+": 0.03824120603015075
+  },
+  "winning_strategy": "global cal + global BA thr",
+  "winning_strategy_metrics": {
+    "strategy": "global cal + global BA thr",
+    "Precision": 0.10952380952380952,
+    "Recall": 0.7931034482758621,
+    "F1": 0.19246861924686193,
+    "BA": 0.7612405808673088,
+    "n_pred_pos": 210,
+    "AUC": 0.8112430760017965,
+    "AP": 0.1271414102475785,
+    "Brier": 0.04182239229084609
+  }
+}

@@ -1,0 +1,14 @@
+feature,gain
+pos_D,0.11789437
+minutes_remaining,0.09355883
+last15_passes_top_third,0.092946894
+minute_out,0.09136226
+jersey_number,0.07561483
+is_home_int,0.07455851
+pos_M,0.07289986
+ratio_passes_top_third,0.07241814
+ratio_peak_speed,0.07105628
+formation_offensiveness,0.07020243
+cumul_sprints,0.06293174
+top_third_press_share_above_team_avg,0.054785393
+runs_per_minute_played,0.04977041

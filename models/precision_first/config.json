@@ -1,0 +1,56 @@
+{
+  "winner_subset": "stability",
+  "winner_features": [
+    "pos_A",
+    "ratio_peak_speed",
+    "pos_D",
+    "formation_offensiveness",
+    "is_home_int",
+    "subbed_int",
+    "ratio_shots_top_third",
+    "jersey_number",
+    "minute_in",
+    "ratio_distance",
+    "cumul_mean_max_speed"
+  ],
+  "n_features": 11,
+  "smote_winner": "ROS_0.3",
+  "optuna_params": {
+    "n_estimators": 361.0,
+    "learning_rate": 0.11048280926077925,
+    "max_depth": 2.0,
+    "min_child_weight": 28.750999485620444,
+    "subsample": 0.9952454433996611,
+    "colsample_bytree": 0.8194057192927462,
+    "gamma": 0.04626821030076002,
+    "reg_lambda": 0.16354185037103425,
+    "reg_alpha": 0.7749603192567341,
+    "scale_pos_weight": 1.0,
+    "objective": "binary:logistic",
+    "eval_metric": "aucpr",
+    "early_stopping_rounds": 30.0,
+    "n_jobs": -1.0,
+    "random_state": 42.0,
+    "tree_method": "hist",
+    "verbosity": 0.0
+  },
+  "f1_threshold_global": 0.09997487437185928,
+  "ba_threshold_global": 0.07148241206030151,
+  "percp_thresholds_f1": {
+    "A": 0.09997487437185928,
+    "M": 0.07148241206030151,
+    "D": 0.047738693467336675
+  },
+  "percp_thresholds_ba": {
+    "A": 0.07623115577889447,
+    "M": 0.07148241206030151,
+    "D": 0.047738693467336675
+  },
+  "metrics": {
+    "oof_auc": 0.6331002282469231,
+    "oof_ap": 0.15681700392375664,
+    "test_auc": 0.7463196766305704,
+    "test_ap": 0.08215499540659185,
+    "test_brier": 0.04891708748283234
+  }
+}

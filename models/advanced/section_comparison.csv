@@ -1,0 +1,5 @@
+section,oof_auc,test_auc,test_ba,test_brier
+"02b baseline (5 features, vanilla XGB)",0.657846931419217,,,
++ Section A (SMOTE: ROS_0.3),0.6757852657111701,,,
++ Section B (Optuna),0.6933345131729965,,,
+"+ Section C (per-position thresholds, final)",0.6933345131729965,0.7017066719896201,0.6823943310544438,0.03937268423313574

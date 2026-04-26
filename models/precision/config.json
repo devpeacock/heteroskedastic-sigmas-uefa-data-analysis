@@ -1,0 +1,33 @@
+{
+  "model_source": "models/advanced/model_xgb.pkl",
+  "calibrator_source": "models/advanced/isotonic_calibrator.pkl",
+  "thresholds": {
+    "ba_optimal_global": 0.07148241206030151,
+    "f1_optimal_global": 0.10947236180904522,
+    "f05_optimal_global": 0.12371859296482411,
+    "precision_at_recall_30": 0.10947236180904522
+  },
+  "recommended_strategy": {
+    "name": "Top-3 per match + A+M filter + F1 threshold",
+    "k": 3,
+    "allowed_positions": [
+      "A",
+      "M"
+    ],
+    "threshold": 0.10947236180904522,
+    "test_metrics": {
+      "precision": 0.13076923076923078,
+      "recall": 0.5862068965517241,
+      "f1": 0.2138364779874214,
+      "balanced_accuracy": 0.7113378911123309
+    }
+  },
+  "comparison_with_02e": {
+    "02e_precision": 0.1,
+    "02e_recall": 0.5862068965517241,
+    "02f_precision": 0.13076923076923078,
+    "02f_recall": 0.5862068965517241,
+    "precision_gain": 0.03076923076923077,
+    "recall_change": 0.0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "best_params": {
+    "max_depth": 5,
+    "learning_rate": 0.08,
+    "min_child_weight": 5,
+    "subsample": 0.8
+  },
+  "n_estimators": 39,
+  "scale_pos_weight": 12.83815028901734,
+  "best_threshold": 0.07061224489795918,
+  "features": [
+    "jersey_number",
+    "ratio_peak_speed",
+    "minutes_remaining",
+    "last15_passes_top_third",
+    "runs_per_minute_played",
+    "cumul_sprints",
+    "minute_out",
+    "formation_offensiveness",
+    "ratio_passes_top_third",
+    "top_third_press_share_above_team_avg",
+    "is_home_int",
+    "pos_D",
+    "pos_M"
+  ],
+  "test_fixtures": [
+    1167,
+    1169,
+    1191,
+    1200,
+    1207,
+    1220,
+    1225
+  ],
+  "metrics": {
+    "oof_auc": 0.7064801825975385,
+    "test_auc": 0.7094665402465193,
+    "test_balanced_accuracy": 0.6792504615998802,
+    "test_brier": 0.04030929970983498
+  }
+}

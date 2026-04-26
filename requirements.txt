@@ -1,0 +1,23 @@
+# Core data stack
+numpy==2.4.4
+pandas==2.3.3
+scipy==1.17.1
+
+# Modeling
+scikit-learn==1.8.0
+xgboost==3.2.0
+lightgbm==4.6.0
+imbalanced-learn==0.14.1
+optuna==4.8.0
+Boruta==0.4.3
+statsmodels==0.14.6
+
+# Explainability and plotting
+matplotlib==3.10.9
+seaborn==0.13.2
+shap==0.51.0
+dalex==1.8.0
+plotly==6.7.0
+
+# Notebook generation
+nbformat==5.10.4
