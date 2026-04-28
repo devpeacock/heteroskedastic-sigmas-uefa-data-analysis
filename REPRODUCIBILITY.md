@@ -11,7 +11,7 @@ Use the project virtual environment and install pinned dependencies:
 pip install -r requirements.txt
 ```
 
-## 2. Deterministic runs
+## 2. Deterministic runsd
 
 Both scripts support:
 

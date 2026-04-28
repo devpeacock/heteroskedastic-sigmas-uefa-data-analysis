@@ -145,6 +145,14 @@ models["02g AP-first"] = {
 print(f"Loaded {len(models)} base models:")
 for name, m in models.items():
     print(f"  {name:25s}  n={len(m['y_true'])}, positives={int(m['y_true'].sum())}")
+
+MODEL_PAPER_LABELS = {
+    "02b kitchen sink": "AUC-selected XGBoost, checkpoint-specific calibration",
+    "02b_AP global": "AP-selected XGBoost, global calibration",
+    "02b_AP per-cp": "AP-selected XGBoost, checkpoint-specific calibration",
+    "02e advanced": "Tuned XGBoost with oversampling",
+    "02g AP-first": "Hybrid AP-first advanced pipeline",
+}
 '''),
 
     ("code", '''"""Load main panel for position lookup (used by post-processing strategies)."""
@@ -305,14 +313,14 @@ def all_metrics(y_true, proba_cal, pred):
 metric_rows = []
 preds_for_cm = {}
 for name, model_data, pred in [
-    ("02b kitchen sink",                         models["02b kitchen sink"],   pred_02b),
-    ("02b_AP global  (BA thr)",                  models["02b_AP global"],      pred_02b_AP_global_ba),
-    ("02b_AP global  (F1 thr)",                  models["02b_AP global"],      pred_02b_AP_global_f1),
-    ("02b_AP per-cp  (per-cp F1 thr)",           models["02b_AP per-cp"],      pred_02b_AP_percp_f1),
-    ("02b_AP per-cp  (per-cp BA thr)",           models["02b_AP per-cp"],      pred_02b_AP_percp_ba),
-    ("02e advanced  (per-pos BA thr)",           models["02e advanced"],       pred_02e),
+    (f"{MODEL_PAPER_LABELS['02b kitchen sink']} (thr=0.07)",                    models["02b kitchen sink"],   pred_02b),
+    (f"{MODEL_PAPER_LABELS['02b_AP global']} (BA thr)",                         models["02b_AP global"],      pred_02b_AP_global_ba),
+    (f"{MODEL_PAPER_LABELS['02b_AP global']} (F1 thr)",                         models["02b_AP global"],      pred_02b_AP_global_f1),
+    (f"{MODEL_PAPER_LABELS['02b_AP per-cp']} (per-checkpoint F1 thr)",          models["02b_AP per-cp"],      pred_02b_AP_percp_f1),
+    (f"{MODEL_PAPER_LABELS['02b_AP per-cp']} (per-checkpoint BA thr)",          models["02b_AP per-cp"],      pred_02b_AP_percp_ba),
+    (f"{MODEL_PAPER_LABELS['02e advanced']} (per-pos BA thr)",                  models["02e advanced"],       pred_02e),
     ("02e + 02f     (top-5 + A+M + F1)",         models["02e advanced"],       pred_02f),
-    ("02g AP-first  (per-pos F1 thr)",           models["02g AP-first"],       pred_02g),
+    (f"{MODEL_PAPER_LABELS['02g AP-first']} (per-pos F1 thr)",                  models["02g AP-first"],       pred_02g),
     ("02g + 02f     (top-5 + A+M + F1)",         models["02g AP-first"],       pred_02g_top5),
 ]:
     metrics = all_metrics(model_data["y_true"], model_data["proba_cal"], pred)
@@ -414,11 +422,11 @@ fig, ax = plt.subplots(figsize=(11, 8))
 # because per-checkpoint calibration changes the ranking of probabilities
 # across buckets (different ROC).
 roc_models = {
-    "02b kitchen sink (5 feat, RFE-CV @ AUC)":     (models["02b kitchen sink"], "tab:blue", "--"),
-    "02b_AP global cal (13 feat, LASSO @ AP)":     (models["02b_AP global"],    "tab:cyan", "-"),
-    "02b_AP per-cp cal (13 feat, LASSO @ AP)":     (models["02b_AP per-cp"],    "tab:pink", "-"),
-    "02e advanced (SMOTE + Optuna)":               (models["02e advanced"],     "tab:orange", "-"),
-    "02g AP-first (SMOTE + Optuna @ AP)":          (models["02g AP-first"],     "tab:green", "-"),
+    MODEL_PAPER_LABELS["02b kitchen sink"]:        (models["02b kitchen sink"], "tab:blue", "--"),
+    MODEL_PAPER_LABELS["02b_AP global"]:           (models["02b_AP global"],    "tab:cyan", "-"),
+    MODEL_PAPER_LABELS["02b_AP per-cp"]:           (models["02b_AP per-cp"],    "tab:pink", "-"),
+    MODEL_PAPER_LABELS["02e advanced"]:            (models["02e advanced"],     "tab:orange", "-"),
+    MODEL_PAPER_LABELS["02g AP-first"]:            (models["02g AP-first"],     "tab:green", "-"),
 }
 
 # Sort by AUC descending so legend reads nicely.
@@ -444,12 +452,12 @@ ax.plot([0, 1], [0, 1], color="black", linestyle=":", alpha=0.5,
 
 # Mark operating points of the actual deployed thresholds.
 operating_points = [
-    ("02b @ thr=0.07",            models["02b kitchen sink"], pred_02b,                  "tab:blue",   "o"),
-    ("02b_AP global @ BA-thr",    models["02b_AP global"],    pred_02b_AP_global_ba,     "tab:cyan",   "o"),
-    ("02b_AP global @ F1-thr",    models["02b_AP global"],    pred_02b_AP_global_f1,     "tab:cyan",   "s"),
-    ("02b_AP per-cp @ per-cp F1", models["02b_AP per-cp"],    pred_02b_AP_percp_f1,      "tab:pink",   "o"),
-    ("02e @ per-pos BA",          models["02e advanced"],     pred_02e,                  "tab:orange", "o"),
-    ("02g @ per-pos F1",          models["02g AP-first"],     pred_02g,                  "tab:green",  "o"),
+    (f"{MODEL_PAPER_LABELS['02b kitchen sink']} (thr=0.07)",                   models["02b kitchen sink"], pred_02b,                  "tab:blue",   "o"),
+    (f"{MODEL_PAPER_LABELS['02b_AP global']} (BA thr)",                        models["02b_AP global"],    pred_02b_AP_global_ba,     "tab:cyan",   "o"),
+    (f"{MODEL_PAPER_LABELS['02b_AP global']} (F1 thr)",                        models["02b_AP global"],    pred_02b_AP_global_f1,     "tab:cyan",   "s"),
+    (f"{MODEL_PAPER_LABELS['02b_AP per-cp']} (per-checkpoint F1 thr)",         models["02b_AP per-cp"],    pred_02b_AP_percp_f1,      "tab:pink",   "o"),
+    (f"{MODEL_PAPER_LABELS['02e advanced']} (per-pos BA thr)",                 models["02e advanced"],     pred_02e,                  "tab:orange", "o"),
+    (f"{MODEL_PAPER_LABELS['02g AP-first']} (per-pos F1 thr)",                 models["02g AP-first"],     pred_02g,                  "tab:green",  "o"),
 ]
 for label, m, pred, color, marker in operating_points:
     fpr_pt = ((1 - m["y_true"]) * pred).sum() / (1 - m["y_true"]).sum()
